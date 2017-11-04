@@ -1,10 +1,34 @@
 import React, { PureComponent } from 'react';
-import { Text, View } from 'react-native';
+import { View, Text } from 'react-native';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
+import * as actions from './actions';
 import styles from './styles';
+import { NAME } from '../../constants';
 
-export default class HomeMainScreen extends PureComponent {
+class HomeMainScreen extends PureComponent {
+  static propTypes = {
+    user: PropTypes.object.isRequired,
+    popularPhotos: PropTypes.array.isRequired,
+    fetchUser: PropTypes.func.isRequired,
+    fetchPhotosGrid: PropTypes.func.isRequired,
+  };
+
+  componentWillMount() {
+    const { fetchUser, fetchPhotosGrid } = this.props;
+    fetchUser();
+    fetchPhotosGrid();
+  }
+
+  componentDidCatch(error, info) {
+    console.log(error, info, this);
+    // this.setState({ hasError: true });
+  }
+
   render() {
+    const { user, popularPhotos } = this.props;
+    console.log(user, popularPhotos);
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Hello</Text>
@@ -12,3 +36,14 @@ export default class HomeMainScreen extends PureComponent {
     );
   }
 }
+
+export default connect(
+  state => ({
+    user: state[NAME].user,
+    popularPhotos: state[NAME].popularPhotos,
+  }),
+  dispatch => ({
+    fetchUser: () => dispatch(actions.fetchUser()),
+    fetchPhotosGrid: () => dispatch(actions.fetchPhotosGrid()),
+  }),
+)(HomeMainScreen);
