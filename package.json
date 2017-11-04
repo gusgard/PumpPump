@@ -12,16 +12,19 @@
     "test-watch": "jest --watch"
   },
   "dependencies": {
-    "react": "16.0.0",
-    "react-native": "0.50.0",
     "axios": "^0.16.2",
     "immutability-helper": "^2.4.0",
     "prop-types": "^15.6.0",
+    "react": "16.0.0",
+    "react-native": "0.50.0",
     "react-native-debugger-open": "^0.3.15",
     "react-navigation": "^1.0.0-beta.17",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "redux-actions": "^2.2.1"
+    "redux-actions": "^2.2.1",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-persist": "^4.10.1",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.1",
