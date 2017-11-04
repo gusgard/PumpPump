@@ -2,13 +2,14 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, FlatList, Image } from 'react-native';
 
-import { width } from '@themes';
+import { width, horizontal } from '@themes';
 
 import styles from './styles';
 
+const space = horizontal.xxSmall;
 const calcGridDimension = numberOfColumns => ({
-  height: width / numberOfColumns,
-  width: width / numberOfColumns,
+  height: width / numberOfColumns - space,
+  width: width / numberOfColumns - space,
 });
 
 export default class ListGrid extends PureComponent {

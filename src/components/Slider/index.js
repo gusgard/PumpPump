@@ -2,9 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, View, FlatList, Image } from 'react-native';
 
-// import { width } from '@themes';
-// import { logo } from '@images';
-
 import styles from './styles';
 
 export default class Slider extends PureComponent {
@@ -19,21 +16,27 @@ export default class Slider extends PureComponent {
   _keyExtractor = item => item.id;
 
   _renderItem = ({ item }) => (
-    <Image style={styles.image} source={item.thumbnail} resizeMethod="resize" />
+    <View style={styles.imageContainer}>
+      <Image
+        style={styles.image}
+        source={item.thumbnail}
+        resizeMode={Image.resizeMode.cover}
+      />
+    </View>
   );
 
   goTo = index => {
-    // console.log(this._flatListRef);
     const params = { animated: true, index };
     this._flatListRef.scrollToIndex(params);
   };
 
-  _onViewableItemsChanged = ({ viewableItems }) => {
-    const [item] = viewableItems;
-    if (item) {
-      this.setState({ index: item.index });
-    }
+  _onScrollEnd = e => {
+    const { contentOffset, layoutMeasurement } = e.nativeEvent;
+    // Divide the horizontal offset by the width of the view to see which page is visible
+    const index = Math.floor(contentOffset.x / layoutMeasurement.width);
+    this.setState({ index });
   };
+
   render() {
     const { items } = this.props;
     return (
@@ -49,7 +52,7 @@ export default class Slider extends PureComponent {
           horizontal
           showsHorizontalScrollIndicator={false}
           pagingEnabled
-          onViewableItemsChanged={this._onViewableItemsChanged}
+          onMomentumScrollEnd={this._onScrollEnd}
         />
         <View style={styles.dotsContainer}>
           {items.map((item, index) => (
