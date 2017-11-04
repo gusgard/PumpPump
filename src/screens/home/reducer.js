@@ -11,8 +11,7 @@ export const initialState = {
   user: {
     photos: [],
   },
-  // slider: {},
-  grid: {},
+  popularPhotos: [],
 };
 
 export default handleActions(
@@ -21,9 +20,9 @@ export default handleActions(
       update(state, {
         user: { $set: user },
       }),
-    [FETCH_PHOTOS_GRID]: (state, { payload: { slider } }) =>
+    [FETCH_PHOTOS_GRID]: (state, { payload: { popularPhotos } }) =>
       update(state, {
-        slider: { $set: slider },
+        popularPhotos: { $set: popularPhotos },
       }),
     [FETCH_PHOTOS_SLIDER]: (state, { payload: { photos } }) =>
       update(state, {

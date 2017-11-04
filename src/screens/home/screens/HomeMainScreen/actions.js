@@ -1,6 +1,6 @@
 import { Alert } from 'react-native';
 
-import { UserFacade } from '@entities';
+import { UserFacade, FeedFacade } from '@entities';
 
 import {
   FETCH_USER,
@@ -22,7 +22,13 @@ export const fetchUser = () => async dispatch => {
   }
 };
 
-export const fetchPhotosGrid = grid => ({
-  type: FETCH_PHOTOS_GRID,
-  payload: { grid },
-});
+export const fetchPhotosGrid = () => async dispatch => {
+  try {
+    const popularPhotos = await FeedFacade.fetchPopularPhotos();
+    dispatch({ type: FETCH_PHOTOS_GRID, payload: { popularPhotos } });
+  } catch (e) {
+    const title = 'Server error';
+    const message = 'Fail connection to server';
+    Alert.alert(title, message, [{ text: 'OK' }]);
+  }
+};

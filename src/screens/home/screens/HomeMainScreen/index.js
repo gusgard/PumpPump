@@ -10,7 +10,7 @@ import { NAME } from '../../constants';
 class HomeMainScreen extends PureComponent {
   static propTypes = {
     user: PropTypes.object.isRequired,
-    grid: PropTypes.object.isRequired,
+    popularPhotos: PropTypes.array.isRequired,
     fetchUser: PropTypes.func.isRequired,
     fetchPhotosGrid: PropTypes.func.isRequired,
   };
@@ -18,7 +18,7 @@ class HomeMainScreen extends PureComponent {
   componentWillMount() {
     const { fetchUser, fetchPhotosGrid } = this.props;
     fetchUser();
-    // fetchPhotosGrid();
+    fetchPhotosGrid();
   }
 
   componentDidCatch(error, info) {
@@ -27,7 +27,8 @@ class HomeMainScreen extends PureComponent {
   }
 
   render() {
-    const { user, slider, grid } = this.props;
+    const { user, popularPhotos } = this.props;
+    console.log(user, popularPhotos);
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Hello</Text>
@@ -39,12 +40,10 @@ class HomeMainScreen extends PureComponent {
 export default connect(
   state => ({
     user: state[NAME].user,
-    // slider: state[NAME].slider,
-    grid: state[NAME].grid,
+    popularPhotos: state[NAME].popularPhotos,
   }),
   dispatch => ({
     fetchUser: () => dispatch(actions.fetchUser()),
-    // fetchPhotosSlider: () => dispatch(actions.fetchPhotosSlider()),
     fetchPhotosGrid: () => dispatch(actions.fetchPhotosGrid()),
   }),
 )(HomeMainScreen);
