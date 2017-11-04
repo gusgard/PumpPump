@@ -3,6 +3,8 @@ import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { Slider, ListGrid } from '@components';
+
 import * as actions from './actions';
 import styles from './styles';
 import { NAME } from '../../constants';
@@ -31,7 +33,8 @@ class HomeMainScreen extends PureComponent {
     console.log(user, popularPhotos);
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Hello</Text>
+        <Slider items={user.photos} />
+        <ListGrid items={popularPhotos} />
       </View>
     );
   }

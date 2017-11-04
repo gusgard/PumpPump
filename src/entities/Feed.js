@@ -9,7 +9,7 @@ export default class Feed {
     const photo = {
       createdAt: data.createdAt,
       id: data.objectId,
-      thumbnail: data.thumbnail,
+      thumbnail: { uri: data.thumbnail },
     };
     return photo;
   }
