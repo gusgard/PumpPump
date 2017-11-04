@@ -30,7 +30,6 @@ export default class Slider extends PureComponent {
 
   _onViewableItemsChanged = ({ viewableItems }) => {
     const [item] = viewableItems;
-    console.log(item);
     if (item) {
       this.setState({ index: item.index });
     }

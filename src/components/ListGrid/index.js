@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { FlatList, Image } from 'react-native';
+import { View, FlatList, Image } from 'react-native';
 
 import { width } from '@themes';
 
@@ -29,12 +29,15 @@ export default class ListGrid extends PureComponent {
 
   _keyExtractor = item => item.id;
 
+  // TODO: left border
   _renderItem = ({ item }) => (
-    <Image
-      style={[styles.image, this.itemDimension]}
-      source={item.thumbnail}
-      resizeMethod="resize"
-    />
+    <View style={styles.imageContainer}>
+      <Image
+        style={[styles.image, this.itemDimension]}
+        source={item.thumbnail}
+        resizeMethod="resize"
+      />
+    </View>
   );
 
   render() {
@@ -45,6 +48,8 @@ export default class ListGrid extends PureComponent {
         data={items}
         keyExtractor={this._keyExtractor}
         renderItem={this._renderItem}
+        showsVerticalScrollIndicator={false}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
       />
     );
   }

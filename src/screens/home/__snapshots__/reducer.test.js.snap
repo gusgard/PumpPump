@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetch popular photos 1`] = `
+Object {
+  "popularPhotos": Array [],
+  "user": Object {
+    "photos": Array [],
+  },
+}
+`;
+
+exports[`fetch user 1`] = `
+Object {
+  "popularPhotos": Array [],
+  "user": Object {
+    "photos": Array [],
+  },
+}
+`;
