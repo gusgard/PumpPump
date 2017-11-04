@@ -12,7 +12,15 @@ class HomeMainScreen extends PureComponent {
     user: PropTypes.object.isRequired,
     slider: PropTypes.object.isRequired,
     grid: PropTypes.object.isRequired,
+    fetchUser: PropTypes.func.isRequired,
+    fetchPhotosSlider: PropTypes.func.isRequired,
+    fetchPhotosGrid: PropTypes.func.isRequired,
   };
+
+  componentWillMount() {
+    const { fetchUser, fetchPhotosSlider, fetchPhotosGrid } = this.props;
+    fetchUser();
+  }
 
   componentDidCatch(error, info) {
     console.log(error, info, this);
@@ -21,7 +29,6 @@ class HomeMainScreen extends PureComponent {
 
   render() {
     const { user, slider, grid } = this.props;
-    console.log(user, slider, grid);
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Hello</Text>
