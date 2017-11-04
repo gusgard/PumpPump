@@ -5,16 +5,24 @@ import { colors } from '@themes';
 const borderWidth = 2;
 
 export default StyleSheet.create({
-  imageContainer: {
+  imageLeft: {
+    borderLeftWidth: borderWidth,
+    borderColor: colors.white,
+  },
+  imageRight: {
+    borderRightWidth: borderWidth,
+    borderColor: colors.white,
+  },
+  imageCenter: {
     borderRightWidth: borderWidth,
     borderLeftWidth: borderWidth,
-    borderColor: colors.primaryLight,
+    borderColor: colors.white,
   },
   image: {
     alignSelf: 'center',
   },
   separator: {
-    borderColor: colors.primaryLight,
+    borderColor: colors.white,
     borderWidth,
   },
 });

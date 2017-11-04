@@ -29,16 +29,25 @@ export default class ListGrid extends PureComponent {
 
   _keyExtractor = item => item.id;
 
-  // TODO: left border
-  _renderItem = ({ item }) => (
-    <View style={styles.imageContainer}>
-      <Image
-        style={[styles.image, this.itemDimension]}
-        source={item.thumbnail}
-        resizeMethod="resize"
-      />
-    </View>
-  );
+  _renderItem = ({ item, index }) => {
+    const { numberOfColumns } = this.props;
+    const position = index % numberOfColumns;
+    let style = styles.imageCenter;
+    if (position === 0) {
+      style = styles.imageRight;
+    } else if (position === numberOfColumns - 1) {
+      style = styles.imageLeft;
+    }
+    return (
+      <View style={style}>
+        <Image
+          style={[styles.image, this.itemDimension]}
+          source={item.thumbnail}
+          resizeMethod="resize"
+        />
+      </View>
+    );
+  };
 
   render() {
     const { items, numberOfColumns } = this.props;

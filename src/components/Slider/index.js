@@ -50,9 +50,6 @@ export default class Slider extends PureComponent {
           showsHorizontalScrollIndicator={false}
           pagingEnabled
           onViewableItemsChanged={this._onViewableItemsChanged}
-          // ListFooterComponent={() => <Text>{'item.id'}</Text>}
-          // scrollEventThrottle={16}
-          // removeClippedSubviews
         />
         <View style={styles.dotsContainer}>
           {items.map((item, index) => (
