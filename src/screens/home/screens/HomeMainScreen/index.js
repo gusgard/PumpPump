@@ -10,16 +10,15 @@ import { NAME } from '../../constants';
 class HomeMainScreen extends PureComponent {
   static propTypes = {
     user: PropTypes.object.isRequired,
-    slider: PropTypes.object.isRequired,
     grid: PropTypes.object.isRequired,
     fetchUser: PropTypes.func.isRequired,
-    fetchPhotosSlider: PropTypes.func.isRequired,
     fetchPhotosGrid: PropTypes.func.isRequired,
   };
 
   componentWillMount() {
-    const { fetchUser, fetchPhotosSlider, fetchPhotosGrid } = this.props;
+    const { fetchUser, fetchPhotosGrid } = this.props;
     fetchUser();
+    // fetchPhotosGrid();
   }
 
   componentDidCatch(error, info) {
@@ -40,12 +39,12 @@ class HomeMainScreen extends PureComponent {
 export default connect(
   state => ({
     user: state[NAME].user,
-    slider: state[NAME].slider,
+    // slider: state[NAME].slider,
     grid: state[NAME].grid,
   }),
   dispatch => ({
     fetchUser: () => dispatch(actions.fetchUser()),
-    fetchPhotosSlider: () => dispatch(actions.fetchPhotosSlider()),
+    // fetchPhotosSlider: () => dispatch(actions.fetchPhotosSlider()),
     fetchPhotosGrid: () => dispatch(actions.fetchPhotosGrid()),
   }),
 )(HomeMainScreen);

@@ -12,6 +12,9 @@ export const fetchUser = () => async dispatch => {
   try {
     const user = await UserFacade.fetchOne();
     dispatch({ type: FETCH_USER, payload: { user } });
+
+    const photos = await UserFacade.fetchPhotos(user.id);
+    dispatch({ type: FETCH_PHOTOS_SLIDER, payload: { photos } });
   } catch (e) {
     const title = 'Server error';
     const message = 'Fail connection to server';
@@ -19,11 +22,7 @@ export const fetchUser = () => async dispatch => {
   }
 };
 
-export const fetchPhotosSlider = user => ({
-  type: FETCH_PHOTOS_SLIDER,
-  payload: { user },
-});
-export const fetchPhotosGrid = user => ({
+export const fetchPhotosGrid = grid => ({
   type: FETCH_PHOTOS_GRID,
-  payload: { user },
+  payload: { grid },
 });

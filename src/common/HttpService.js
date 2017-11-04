@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-import { API_URL, API_PARAMS } from '@environment';
+import { API_URL } from '@environment';
 
 class HttpService {
   constructor() {
-    this.instance = axios.create({ baseURL: API_URL, body: API_PARAMS });
+    this.instance = axios.create({ baseURL: API_URL });
   }
 
   async post(...args) {

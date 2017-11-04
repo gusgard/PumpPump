@@ -8,8 +8,10 @@ import {
 } from './constants';
 
 export const initialState = {
-  user: {},
-  slider: {},
+  user: {
+    photos: [],
+  },
+  // slider: {},
   grid: {},
 };
 
@@ -23,9 +25,11 @@ export default handleActions(
       update(state, {
         slider: { $set: slider },
       }),
-    [FETCH_PHOTOS_SLIDER]: (state, { payload: { grid } }) =>
+    [FETCH_PHOTOS_SLIDER]: (state, { payload: { photos } }) =>
       update(state, {
-        grid: { $set: grid },
+        user: {
+          photos: { $set: photos },
+        },
       }),
   },
   initialState,
