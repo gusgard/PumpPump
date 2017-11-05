@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "marginHorizontal": 28.125,
+      "marginVertical": 50.025,
+    }
+  }
+>
+  <Thumbnail
+    size={100}
+    source={Object {}}
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "marginLeft": 28.125,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "flex": 1,
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      numberOfLines={3}
+      style={
+        Object {
+          "borderWidth": 1,
+          "fontSize": 15,
+        }
+      }
+    />
+  </View>
+</View>
+`;

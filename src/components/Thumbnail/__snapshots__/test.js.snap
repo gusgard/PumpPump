@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View>
+  <Image
+    onLoadEnd={[Function]}
+    onLoadStart={[Function]}
+    resizeMode="cover"
+    source={
+      Object {
+        "testUri": "../../../src/images/placeholderUser/user.png",
+      }
+    }
+    style={
+      Object {
+        "borderRadius": 50,
+        "height": 100,
+        "width": 100,
+      }
+    }
+  />
+</View>
+`;

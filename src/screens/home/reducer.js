@@ -10,6 +10,9 @@ import {
 export const initialState = {
   user: {
     photos: [],
+    bio: [],
+    name: '',
+    thumbnail: {},
   },
   popularPhotos: [],
 };

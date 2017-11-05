@@ -3,11 +3,12 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { Slider, ListGrid } from '@components';
+import { Thumbnail, Slider, ListGrid } from '@components';
 
 import * as actions from './actions';
 import styles from './styles';
 import { getUserState, getPopularPhotosState } from './selectors';
+import { UserBio } from './components';
 
 class HomeMainScreen extends PureComponent {
   static propTypes = {
@@ -19,8 +20,8 @@ class HomeMainScreen extends PureComponent {
 
   componentWillMount() {
     const { fetchUser, fetchPhotosGrid } = this.props;
-    fetchUser();
-    fetchPhotosGrid();
+    // fetchUser();
+    // fetchPhotosGrid();
   }
 
   componentDidCatch(error, info) {
@@ -32,8 +33,9 @@ class HomeMainScreen extends PureComponent {
     const { user, popularPhotos } = this.props;
     return (
       <View style={styles.container}>
-        <Slider items={user.photos} />
-        <ListGrid items={popularPhotos} />
+        <UserBio name={user.name} bio={user.bio} picture={user.thumbnail} />
+        {/* <Slider items={user.photos} />
+        <ListGrid items={popularPhotos} /> */}
       </View>
     );
   }
