@@ -23,6 +23,7 @@ For an Android device `yarn android`
 
 For an iOS device `yarn ios`
 
+![Demo](./demo.gif)
 
 ## Author
 Gustavo Gard
