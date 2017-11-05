@@ -5,8 +5,9 @@ exports[`renders correctly 1`] = `
   style={
     Object {
       "flexDirection": "row",
-      "marginHorizontal": 28.125,
-      "marginVertical": 50.025,
+      "paddingBottom": 16.675,
+      "paddingHorizontal": 28.125,
+      "paddingTop": 50.025,
     }
   }
 >
@@ -28,23 +29,14 @@ exports[`renders correctly 1`] = `
       ellipsizeMode="tail"
       style={
         Object {
-          "flex": 1,
           "fontSize": 20,
           "fontWeight": "bold",
+          "marginBottom": 16.675,
         }
       }
     />
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      numberOfLines={3}
-      style={
-        Object {
-          "borderWidth": 1,
-          "fontSize": 15,
-        }
-      }
+    <Description
+      bio={Array []}
     />
   </View>
 </View>

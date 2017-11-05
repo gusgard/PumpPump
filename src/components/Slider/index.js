@@ -17,11 +17,7 @@ export default class Slider extends PureComponent {
 
   _renderItem = ({ item }) => (
     <View style={styles.imageContainer}>
-      <Image
-        style={styles.image}
-        source={item.thumbnail}
-        resizeMode={Image.resizeMode.cover}
-      />
+      <Image style={styles.image} source={item.thumbnail} />
     </View>
   );
 
@@ -42,7 +38,6 @@ export default class Slider extends PureComponent {
     return (
       <View style={styles.container}>
         <FlatList
-          style={styles.slider}
           ref={component => {
             this._flatListRef = component;
           }}

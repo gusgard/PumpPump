@@ -39,7 +39,7 @@ export default class Thumbnail extends PureComponent {
       onLoadStart: () => this.setState({ loading: true }),
       onLoadEnd: () => this.setState({ loading: false }),
     };
-    // If the URL is empty show avatar!
+    // If the URL is empty show placeholder
     if (!source.uri) {
       imageProps.source = placeholderUser;
     }

@@ -2,7 +2,11 @@
 
 exports[`renders correctly 1`] = `
 <View
-  style={Object {}}
+  style={
+    Object {
+      "marginVertical": 16.675,
+    }
+  }
 >
   <FlatList
     data={
@@ -33,7 +37,6 @@ exports[`renders correctly 1`] = `
     renderItem={[Function]}
     scrollEventThrottle={50}
     showsHorizontalScrollIndicator={false}
-    style={Object {}}
     updateCellsBatchingPeriod={50}
     windowSize={21}
   />

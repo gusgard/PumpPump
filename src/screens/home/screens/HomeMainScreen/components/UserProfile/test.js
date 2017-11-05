@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import UserBio from './';
+import UserProfile from './';
 
 const user = {
   bio: [],
@@ -11,7 +11,7 @@ const user = {
 
 it('renders correctly', () => {
   const wrapper = shallow(
-    <UserBio name={user.name} bio={user.bio} picture={user.thumbnail} />,
+    <UserProfile name={user.name} bio={user.bio} picture={user.thumbnail} />,
   );
   expect(wrapper).toMatchSnapshot();
 });

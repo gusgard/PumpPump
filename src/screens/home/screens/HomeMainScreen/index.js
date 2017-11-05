@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { Thumbnail, Slider, ListGrid } from '@components';
+import { Slider, ListGrid } from '@components';
 
 import * as actions from './actions';
 import styles from './styles';
 import { getUserState, getPopularPhotosState } from './selectors';
-import { UserBio } from './components';
+import { UserProfile } from './components';
 
 class HomeMainScreen extends PureComponent {
   static propTypes = {
@@ -20,22 +20,19 @@ class HomeMainScreen extends PureComponent {
 
   componentWillMount() {
     const { fetchUser, fetchPhotosGrid } = this.props;
-    // fetchUser();
-    // fetchPhotosGrid();
-  }
-
-  componentDidCatch(error, info) {
-    console.log(error, info, this);
-    // this.setState({ hasError: true });
+    fetchUser();
+    fetchPhotosGrid();
   }
 
   render() {
     const { user, popularPhotos } = this.props;
     return (
       <View style={styles.container}>
-        <UserBio name={user.name} bio={user.bio} picture={user.thumbnail} />
-        {/* <Slider items={user.photos} />
-        <ListGrid items={popularPhotos} /> */}
+        <UserProfile name={user.name} bio={user.bio} picture={user.thumbnail} />
+        <ScrollView>
+          <Slider items={user.photos} />
+          <ListGrid items={popularPhotos} />
+        </ScrollView>
       </View>
     );
   }

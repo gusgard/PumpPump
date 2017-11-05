@@ -2,21 +2,21 @@ import { StyleSheet } from 'react-native';
 
 import { vertical, colors, horizontal, width } from '@themes';
 
-const imageDimension = width - (vertical.xSmall + horizontal.medium);
+const size = width * 0.9;
 
 export default StyleSheet.create({
-  container: {},
-  slider: {},
+  container: {
+    marginVertical: vertical.xxSmall,
+  },
   imageContainer: {
-    height: width,
+    height: size,
     width,
-    backgroundColor: colors.primaryDark,
     justifyContent: 'center',
   },
   image: {
     alignSelf: 'center',
-    height: imageDimension,
-    width: imageDimension,
+    height: size,
+    width: size,
   },
   dotsContainer: {
     flexDirection: 'row',
