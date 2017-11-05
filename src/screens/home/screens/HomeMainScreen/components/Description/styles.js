@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import { colors, fontSize } from '@themes';
+import { colors, fontSize } from '@themes'
 
 export default StyleSheet.create({
   bio: {
@@ -13,4 +13,4 @@ export default StyleSheet.create({
   readMore: {
     fontWeight: 'bold',
   },
-});
+})

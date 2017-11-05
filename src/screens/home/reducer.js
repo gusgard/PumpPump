@@ -1,11 +1,11 @@
-import { handleActions } from 'redux-actions';
-import update from 'immutability-helper';
+import { handleActions } from 'redux-actions'
+import update from 'immutability-helper'
 
 import {
   FETCH_USER,
   FETCH_PHOTOS_SLIDER,
   FETCH_PHOTOS_GRID,
-} from './constants';
+} from './constants'
 
 export const initialState = {
   user: {
@@ -15,7 +15,7 @@ export const initialState = {
     thumbnail: {},
   },
   popularPhotos: [],
-};
+}
 
 export default handleActions(
   {
@@ -35,4 +35,4 @@ export default handleActions(
       }),
   },
   initialState,
-);
+)

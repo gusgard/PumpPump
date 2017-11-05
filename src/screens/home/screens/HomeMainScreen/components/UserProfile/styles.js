@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import { horizontal, vertical, fontSize } from '@themes';
+import { horizontal, vertical, fontSize } from '@themes'
 
 export default StyleSheet.create({
   container: {
@@ -18,4 +18,4 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: vertical.xxSmall,
   },
-});
+})

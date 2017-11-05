@@ -5,7 +5,8 @@
   "scripts": {
     "android": "react-native run-android && adb reverse tcp:8081 tcp:8081",
     "ios": "react-native run-ios --simulator='iPhone 6'",
-    "lint": "eslint index.ios.js index.android.js src",
+    "lint": "eslint index.js src __mocks__",
+    "lint-fix": "eslint index.js src __mocks__ --fix",
     "postinstall": "rndebugger-open",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
