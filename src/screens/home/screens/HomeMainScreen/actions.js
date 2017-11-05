@@ -8,9 +8,9 @@ import {
   FETCH_PHOTOS_GRID,
 } from '../../constants';
 
-export const fetchUser = () => async dispatch => {
+export const fetchUser = userId => async dispatch => {
   try {
-    const user = await UserFacade.fetchOne();
+    const user = await UserFacade.fetchOne(userId);
     dispatch({ type: FETCH_USER, payload: { user } });
 
     const photos = await UserFacade.fetchPhotos(user.id);

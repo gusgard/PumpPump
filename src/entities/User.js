@@ -33,9 +33,7 @@ export default class User {
       createdAt: data.createdAt,
       id: data.objectId,
       name: data.name,
-      picture: { uri: data.profileImage },
       thumbnail: { uri: data.profileThumbnail },
-      updatedAt: data.updatedAt,
       photos: [],
     };
     return user;

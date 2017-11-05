@@ -58,5 +58,7 @@ module.exports = {
     it: false,
     describe: false,
     expect: false,
+    beforeEach: false,
+    afterEach: false,
   },
 };

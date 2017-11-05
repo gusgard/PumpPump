@@ -9,7 +9,7 @@ if (isDev) {
     GLOBAL.originalXMLHttpRequest || GLOBAL.XMLHttpRequest;
 }
 
-let api = { urls: {}, params: {} };
+let api = { urls: { test: 'https://FAKE_URL.com' }, params: {} };
 try {
   if (!isTest) {
     api = require('./api.config').default;
