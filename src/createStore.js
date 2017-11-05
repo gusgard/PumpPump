@@ -23,7 +23,7 @@ export default (data = {}) => {
     whitelist: [home.NAME]
   })
   // Add purge to delete the persist store.
-  // .purge();
+  // .purge()
 
   return store
 }

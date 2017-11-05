@@ -11,8 +11,8 @@ export default class UserProfile extends PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
     bio: PropTypes.array.isRequired,
-    picture: PropTypes.object.isRequired,
-  };
+    picture: PropTypes.object.isRequired
+  }
 
   render() {
     const { name, bio, picture } = this.props
