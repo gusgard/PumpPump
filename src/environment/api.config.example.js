@@ -7,6 +7,6 @@ const api = {
     _version: 'SECRET',
     _SessionToken: 'SECRET',
   },
-};
+}
 
-export default api;
+export default api

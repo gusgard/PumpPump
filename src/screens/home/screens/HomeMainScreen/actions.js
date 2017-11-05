@@ -1,34 +1,34 @@
-import { Alert } from 'react-native';
+import { Alert } from 'react-native'
 
-import { UserFacade, FeedFacade } from '@entities';
+import { UserFacade, FeedFacade } from '@entities'
 
 import {
   FETCH_USER,
   FETCH_PHOTOS_SLIDER,
   FETCH_PHOTOS_GRID,
-} from '../../constants';
+} from '../../constants'
 
-export const fetchUser = () => async dispatch => {
+export const fetchUser = userId => async dispatch => {
   try {
-    const user = await UserFacade.fetchOne();
-    dispatch({ type: FETCH_USER, payload: { user } });
+    const user = await UserFacade.fetchOne(userId)
+    dispatch({ type: FETCH_USER, payload: { user } })
 
-    const photos = await UserFacade.fetchPhotos(user.id);
-    dispatch({ type: FETCH_PHOTOS_SLIDER, payload: { photos } });
+    const photos = await UserFacade.fetchPhotos(user.id)
+    dispatch({ type: FETCH_PHOTOS_SLIDER, payload: { photos } })
   } catch (e) {
-    const title = 'Server error';
-    const message = 'Fail connection to server';
-    Alert.alert(title, message, [{ text: 'OK' }]);
+    const title = 'Server error'
+    const message = 'Fail connection to server'
+    Alert.alert(title, message, [{ text: 'OK' }])
   }
-};
+}
 
 export const fetchPhotosGrid = () => async dispatch => {
   try {
-    const popularPhotos = await FeedFacade.fetchPopularPhotos();
-    dispatch({ type: FETCH_PHOTOS_GRID, payload: { popularPhotos } });
+    const popularPhotos = await FeedFacade.fetchPopularPhotos()
+    dispatch({ type: FETCH_PHOTOS_GRID, payload: { popularPhotos } })
   } catch (e) {
-    const title = 'Server error';
-    const message = 'Fail connection to server';
-    Alert.alert(title, message, [{ text: 'OK' }]);
+    const title = 'Server error'
+    const message = 'Fail connection to server'
+    Alert.alert(title, message, [{ text: 'OK' }])
   }
-};
+}

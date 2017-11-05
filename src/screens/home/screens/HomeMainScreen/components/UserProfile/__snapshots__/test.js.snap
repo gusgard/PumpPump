@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "paddingBottom": 16.675,
+      "paddingHorizontal": 28.125,
+      "paddingTop": 50.025,
+    }
+  }
+>
+  <Thumbnail
+    size={100}
+    source={Object {}}
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "marginLeft": 28.125,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "marginBottom": 16.675,
+        }
+      }
+    />
+    <Description
+      bio={Array []}
+    />
+  </View>
+</View>
+`;

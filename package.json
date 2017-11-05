@@ -5,7 +5,8 @@
   "scripts": {
     "android": "react-native run-android && adb reverse tcp:8081 tcp:8081",
     "ios": "react-native run-ios --simulator='iPhone 6'",
-    "lint": "eslint index.ios.js index.android.js src",
+    "lint": "eslint index.js src __mocks__",
+    "lint-fix": "eslint index.js src __mocks__ --fix",
     "postinstall": "rndebugger-open",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
@@ -16,17 +17,18 @@
     "immutability-helper": "^2.4.0",
     "prop-types": "^15.6.0",
     "react": "16.0.0",
-    "react-native": "0.50.0",
+    "react-native": "0.50.1",
     "react-native-debugger-open": "^0.3.15",
-    "react-navigation": "^1.0.0-beta.17",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
     "redux-devtools-extension": "^2.13.2",
     "redux-persist": "^4.10.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1"
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.9.0",
     "babel-eslint": "^7.2.1",
     "babel-jest": "21.2.0",
     "babel-plugin-transform-remove-console": "^6.8.5",
