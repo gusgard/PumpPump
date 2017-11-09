@@ -1,4 +1,4 @@
-//  name of this modules
+//  name of this module
 export const NAME = 'home'
 
 //  action types

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 
-import { HomeMainScreen } from 'PumpPump/src/screens'
+import { HomeMainScreen } from 'GraphqlExample/src/screens'
 
 import createStore from './createStore'
 
