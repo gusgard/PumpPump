@@ -1,34 +1,41 @@
-import { Alert } from 'react-native'
+import { Alert } from 'react-native';
 
-import { UserFacade, FeedFacade } from '@entities'
+import { User, Post } from '@entities';
+import { GET_USER, GET_ALL_USER } from '@queries';
 
-import {
-  FETCH_USER,
-  FETCH_PHOTOS_SLIDER,
-  FETCH_PHOTOS_GRID,
-} from '../../constants'
+import { FETCH_USER, FETCH_ALL_POPULAR } from '../../constants';
 
-export const fetchUser = userId => async dispatch => {
+export const fetchUser = userId => async (dispatch, getState, client) => {
   try {
-    const user = await UserFacade.fetchOne(userId)
-    dispatch({ type: FETCH_USER, payload: { user } })
+    const query = await client.query({
+      query: GET_USER,
+      variables: {
+        id: userId,
+      },
+    });
+    const { data: { User: userData } } = query;
+    const user = User.decode(userData);
 
-    const photos = await UserFacade.fetchPhotos(user.id)
-    dispatch({ type: FETCH_PHOTOS_SLIDER, payload: { photos } })
+    dispatch({ type: FETCH_USER, payload: { user } });
   } catch (e) {
-    const title = 'Server error'
-    const message = 'Fail connection to server'
-    Alert.alert(title, message, [{ text: 'OK' }])
+    console.log(e);
+    const title = 'Server error';
+    const message = 'Fail connection to server';
+    Alert.alert(title, message, [{ text: 'OK' }]);
   }
-}
+};
 
-export const fetchPhotosGrid = () => async dispatch => {
+export const fetchPhotosGrid = () => async (dispatch, getState, client) => {
   try {
-    const popularPhotos = await FeedFacade.fetchPopularPhotos()
-    dispatch({ type: FETCH_PHOTOS_GRID, payload: { popularPhotos } })
+    const query = await client.query({
+      query: GET_ALL_USER,
+    });
+    const { data: { allPopulars } } = query;
+    const popular = allPopulars.map(i => Post.decode(i));
+    dispatch({ type: FETCH_ALL_POPULAR, payload: { popular } });
   } catch (e) {
-    const title = 'Server error'
-    const message = 'Fail connection to server'
-    Alert.alert(title, message, [{ text: 'OK' }])
+    const title = 'Server error';
+    const message = 'Fail connection to server';
+    Alert.alert(title, message, [{ text: 'OK' }]);
   }
-}
+};

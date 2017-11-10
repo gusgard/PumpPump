@@ -4,4 +4,4 @@ export default {
     height: size,
     width: size,
   }),
-}
+};

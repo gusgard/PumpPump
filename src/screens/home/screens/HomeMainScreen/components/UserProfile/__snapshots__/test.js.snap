@@ -36,7 +36,7 @@ exports[`renders correctly 1`] = `
       }
     />
     <Description
-      bio={Array []}
+      texts={Array []}
     />
   </View>
 </View>

@@ -1,21 +1,17 @@
-import { handleActions } from 'redux-actions'
-import update from 'immutability-helper'
+import { handleActions } from 'redux-actions';
+import update from 'immutability-helper';
 
-import {
-  FETCH_USER,
-  FETCH_PHOTOS_SLIDER,
-  FETCH_PHOTOS_GRID,
-} from './constants'
+import { FETCH_USER, FETCH_ALL_POPULAR } from './constants';
 
 export const initialState = {
   user: {
     photos: [],
-    bio: [],
+    description: [],
     name: '',
     thumbnail: {},
   },
-  popularPhotos: [],
-}
+  popular: [],
+};
 
 export default handleActions(
   {
@@ -23,16 +19,10 @@ export default handleActions(
       update(state, {
         user: { $set: user },
       }),
-    [FETCH_PHOTOS_GRID]: (state, { payload: { popularPhotos } }) =>
+    [FETCH_ALL_POPULAR]: (state, { payload: { popular } }) =>
       update(state, {
-        popularPhotos: { $set: popularPhotos },
-      }),
-    [FETCH_PHOTOS_SLIDER]: (state, { payload: { photos } }) =>
-      update(state, {
-        user: {
-          photos: { $set: photos },
-        },
+        popular: { $set: popular },
       }),
   },
   initialState,
-)
+);

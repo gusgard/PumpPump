@@ -2,9 +2,9 @@
 
 exports[`fetch popular photos 1`] = `
 Object {
-  "popularPhotos": Array [],
+  "popular": Array [],
   "user": Object {
-    "bio": Array [],
+    "description": Array [],
     "name": "",
     "photos": Array [],
     "thumbnail": Object {},
@@ -14,9 +14,9 @@ Object {
 
 exports[`fetch user 1`] = `
 Object {
-  "popularPhotos": Array [],
+  "popular": Array [],
   "user": Object {
-    "bio": Array [],
+    "description": Array [],
     "name": "",
     "photos": Array [],
     "thumbnail": Object {},

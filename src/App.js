@@ -1,16 +1,17 @@
-import React from 'react'
-import { Provider } from 'react-redux'
+import React from 'react';
+import { ApolloProvider } from 'react-apollo';
 
-import { HomeMainScreen } from 'PumpPump/src/screens'
+import { HomeMainScreen } from 'GraphqlExample/src/screens';
 
-import createStore from './createStore'
+import client from './apolloClient';
+import createStore from './createStore';
 
-const store = createStore()
+const store = createStore();
 
 const App = () => (
-  <Provider store={store}>
+  <ApolloProvider store={store} client={client}>
     <HomeMainScreen />
-  </Provider>
-)
+  </ApolloProvider>
+);
 
-export default App
+export default App;

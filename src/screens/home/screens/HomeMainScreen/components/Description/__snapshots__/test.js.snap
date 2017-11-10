@@ -8,13 +8,8 @@ exports[`renders Description without Read more text 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    ellipsizeMode="middle"
+    ellipsizeMode="tail"
     numberOfLines={0}
-    style={
-      Object {
-        "fontSize": 15,
-      }
-    }
   >
     <Text
       accessible={true}
@@ -22,7 +17,7 @@ exports[`renders Description without Read more text 1`] = `
       ellipsizeMode="tail"
       key="0"
     >
-      Motivation to become the best version of you!  💙💪🌎. It's
+      Motivation to become the best version of you!
     </Text>
     <Text
       accessible={true}
@@ -36,7 +31,7 @@ exports[`renders Description without Read more text 1`] = `
         }
       }
     >
-       #HealthyHolidays
+      #Whitebear
     </Text>
   </Text>
 </TouchableOpacity>
@@ -50,13 +45,8 @@ exports[`renders correctly 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    ellipsizeMode="middle"
-    numberOfLines={3}
-    style={
-      Object {
-        "fontSize": 15,
-      }
-    }
+    ellipsizeMode="tail"
+    numberOfLines={4}
   >
     <Text
       accessible={true}
@@ -64,7 +54,7 @@ exports[`renders correctly 1`] = `
       ellipsizeMode="tail"
       key="0"
     >
-      Motivation to become the best version of you!  💙💪🌎. It's
+      Motivation to become the best version of you!
     </Text>
     <Text
       accessible={true}
@@ -78,19 +68,7 @@ exports[`renders correctly 1`] = `
         }
       }
     >
-       #HealthyHolidays
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontWeight": "bold",
-        }
-      }
-    >
-       ...read more
+      #Whitebear
     </Text>
   </Text>
 </TouchableOpacity>

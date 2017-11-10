@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import { vertical, colors, horizontal, width } from '@themes'
+import { vertical, colors, horizontal, width } from '@themes';
 
-const size = width * 0.9
+const size = width * 0.9;
 
 export default StyleSheet.create({
   container: {
@@ -33,4 +33,4 @@ export default StyleSheet.create({
   dotActive: {
     backgroundColor: colors.primaryDark,
   },
-})
+});

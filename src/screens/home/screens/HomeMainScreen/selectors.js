@@ -1,12 +1,12 @@
-import { createSelector } from 'reselect'
+import { createSelector } from 'reselect';
 
-import { NAME } from '../../constants'
+import { NAME } from '../../constants';
 
-const getPopularPhotos = state => state[NAME].popularPhotos
-export const getPopularPhotosState = createSelector(
-  [getPopularPhotos],
-  popularPhotos => popularPhotos,
-)
+const getPopularPost = state => state[NAME].popular;
+export const getPopularPostState = createSelector(
+  [getPopularPost],
+  popular => popular,
+);
 
-const getUser = state => state[NAME].user
-export const getUserState = createSelector([getUser], user => user)
+const getUser = state => state[NAME].user;
+export const getUserState = createSelector([getUser], user => user);

@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import { colors } from '@themes'
+import { colors } from '@themes';
 
-const borderWidth = 2
+const borderWidth = 2;
 
 export default StyleSheet.create({
   imageLeft: {
@@ -25,4 +25,4 @@ export default StyleSheet.create({
     borderColor: colors.white,
     borderWidth,
   },
-})
+});

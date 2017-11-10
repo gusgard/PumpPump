@@ -1,24 +1,28 @@
 /**
-  * Remove links and hashtags from bio and add it to a list
+  * Remove links and hashtags from description and add it to a list
   *
-  * @param {String[]} bio The description of the user
+  * @param {String[]} description The description of the user
   * @return {Object[]} texts
   */
-const parseBio = bio => {
-  const text = bio.split('\n\n').join('. ')
-  const highlightes = text.match(/\s([#||@])\w+/g)
-  const texts = []
+const parseDescription = description => {
+  const text = description.split('\n').join('. ');
+  const highlightes = text.match(/\s([W||H||I||T||E||B||E||A||R])\w+/g);
+  const texts = [];
 
-  let rawText = text
-  highlightes.forEach(link => {
-    const [first, rest] = rawText.split(link)
-    texts.push({ value: first, highlighted: false })
-    texts.push({ value: link, highlighted: true })
-    rawText = rest
-  })
+  let rawText = text;
+  if (highlightes) {
+    highlightes.forEach(link => {
+      const [first, rest] = rawText.split(link);
+      texts.push({ value: first, highlighted: false });
+      texts.push({ value: link, highlighted: true });
+      rawText = rest;
+    });
+  } else {
+    texts.push({ value: description, highlighted: false });
+  }
 
-  return texts
-}
+  return texts;
+};
 
 export default class User {
   /**
@@ -29,14 +33,13 @@ export default class User {
     */
   static decode(data) {
     const user = {
-      bio: parseBio(data.bio),
-      createdAt: data.createdAt,
-      id: data.objectId,
+      description: parseDescription(data.description),
+      id: data.id,
       name: data.name,
-      thumbnail: { uri: data.profileThumbnail },
-      photos: []
-    }
-    return user
+      thumbnail: { uri: data.thumbnail },
+      photos: data.Profiles && data.Profiles.map(i => User.decodePhoto(i)),
+    };
+    return user;
   }
 
   /**
@@ -47,10 +50,9 @@ export default class User {
     */
   static decodePhoto(data) {
     const photo = {
-      createdAt: data.createdAt,
-      id: data.objectId,
-      thumbnail: { uri: data.thumbnail }
-    }
-    return photo
+      id: data.id,
+      thumbnail: { uri: data.thumbnail },
+    };
+    return photo;
   }
 }

@@ -1,25 +1,25 @@
-import { getUserState, getPopularPhotosState } from './selectors'
+import { getUserState, getPopularPostState } from './selectors';
 
-import { initialState } from '../../reducer'
-import { NAME } from '../../constants'
+import { initialState } from '../../reducer';
+import { NAME } from '../../constants';
 
-test('selector getUserState', () => {
+it('selector getUserState', () => {
   const state = {
-    [NAME]: initialState
-  }
+    [NAME]: initialState,
+  };
   const expected = {
     photos: [],
-    bio: [],
+    description: [],
     name: '',
-    thumbnail: {}
-  }
-  expect(getUserState(state)).toEqual(expected)
-})
+    thumbnail: {},
+  };
+  expect(getUserState(state)).toEqual(expected);
+});
 
-test('selector getPopularPhotosState', () => {
+it('selector getPopularPostState', () => {
   const state = {
-    [NAME]: initialState
-  }
-  const expected = []
-  expect(getPopularPhotosState(state)).toEqual(expected)
-})
+    [NAME]: initialState,
+  };
+  const expected = [];
+  expect(getPopularPostState(state)).toEqual(expected);
+});
