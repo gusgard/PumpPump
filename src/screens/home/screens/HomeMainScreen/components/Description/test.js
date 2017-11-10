@@ -1,26 +1,26 @@
-import { shallow } from 'enzyme'
-import React from 'react'
+import { shallow } from 'enzyme';
+import React from 'react';
 
-import Description from './'
+import Description from './';
 
-const bio = [
+const description = [
   {
-    value: 'Motivation to become the best version of you!  💙💪🌎. It\'s',
+    value: 'Motivation to become the best version of you!',
     highlighted: false,
   },
   {
-    value: ' #HealthyHolidays',
+    value: '#Whitebear',
     highlighted: true,
   },
-]
+];
 
 it('renders correctly', () => {
-  const wrapper = shallow(<Description bio={bio} />)
-  expect(wrapper).toMatchSnapshot()
-})
+  const wrapper = shallow(<Description texts={description} />);
+  expect(wrapper).toMatchSnapshot();
+});
 
 it('renders Description without Read more text', () => {
-  const wrapper = shallow(<Description bio={bio} />, {})
-  wrapper.simulate('press')
-  expect(wrapper).toMatchSnapshot()
-})
+  const wrapper = shallow(<Description texts={description} />, {});
+  wrapper.simulate('press');
+  expect(wrapper).toMatchSnapshot();
+});

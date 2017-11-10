@@ -14,7 +14,6 @@ export const fetchUser = userId => async (dispatch, getState, client) => {
       },
     });
     const { data: { User: userData } } = query;
-    console.log(userData);
     const user = User.decode(userData);
 
     dispatch({ type: FETCH_USER, payload: { user } });

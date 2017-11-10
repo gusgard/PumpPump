@@ -10,11 +10,6 @@ exports[`renders Description without Read more text 1`] = `
     allowFontScaling={true}
     ellipsizeMode="tail"
     numberOfLines={0}
-    style={
-      Object {
-        "fontSize": 15,
-      }
-    }
   >
     <Text
       accessible={true}
@@ -22,7 +17,7 @@ exports[`renders Description without Read more text 1`] = `
       ellipsizeMode="tail"
       key="0"
     >
-      Motivation to become the best version of you!  💙💪🌎. It's
+      Motivation to become the best version of you!
     </Text>
     <Text
       accessible={true}
@@ -36,7 +31,7 @@ exports[`renders Description without Read more text 1`] = `
         }
       }
     >
-       #HealthyHolidays
+      #Whitebear
     </Text>
   </Text>
 </TouchableOpacity>
@@ -52,11 +47,6 @@ exports[`renders correctly 1`] = `
     allowFontScaling={true}
     ellipsizeMode="tail"
     numberOfLines={4}
-    style={
-      Object {
-        "fontSize": 15,
-      }
-    }
   >
     <Text
       accessible={true}
@@ -64,7 +54,7 @@ exports[`renders correctly 1`] = `
       ellipsizeMode="tail"
       key="0"
     >
-      Motivation to become the best version of you!  💙💪🌎. It's
+      Motivation to become the best version of you!
     </Text>
     <Text
       accessible={true}
@@ -78,7 +68,7 @@ exports[`renders correctly 1`] = `
         }
       }
     >
-       #HealthyHolidays
+      #Whitebear
     </Text>
   </Text>
 </TouchableOpacity>

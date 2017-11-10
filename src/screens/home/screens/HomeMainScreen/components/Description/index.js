@@ -8,24 +8,24 @@ const MAX_LINES = 4;
 
 export default class Description extends PureComponent {
   static propTypes = {
-    bio: PropTypes.array.isRequired,
+    texts: PropTypes.array.isRequired,
   };
 
   state = {
     readMore: true,
   };
 
-  toggleBioText = () => {
+  toggleReadMore = () => {
     this.setState({ readMore: !this.state.readMore });
   };
 
   render() {
-    const { bio } = this.props;
+    const { texts } = this.props;
     const { readMore } = this.state;
     return (
-      <TouchableOpacity onPress={this.toggleBioText}>
-        <Text numberOfLines={readMore ? MAX_LINES : 0} style={styles.bio}>
-          {bio.map(
+      <TouchableOpacity onPress={this.toggleReadMore}>
+        <Text numberOfLines={readMore ? MAX_LINES : 0} style={styles.texts}>
+          {texts.map(
             (text, index) =>
               text.highlighted ? (
                 <Text key={index} style={styles.highlighted}>

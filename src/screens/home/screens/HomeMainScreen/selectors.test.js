@@ -9,7 +9,7 @@ it('selector getUserState', () => {
   };
   const expected = {
     photos: [],
-    bio: [],
+    description: [],
     name: '',
     thumbnail: {},
   };

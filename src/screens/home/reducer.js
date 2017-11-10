@@ -6,7 +6,7 @@ import { FETCH_USER, FETCH_PHOTOS_GRID } from './constants';
 export const initialState = {
   user: {
     photos: [],
-    bio: [],
+    description: [],
     name: '',
     thumbnail: {},
   },

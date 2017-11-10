@@ -29,7 +29,11 @@ class HomeMainScreen extends PureComponent {
     const { user, popularPhotos } = this.props;
     return (
       <View style={styles.container}>
-        <UserProfile name={user.name} bio={user.bio} picture={user.thumbnail} />
+        <UserProfile
+          name={user.name}
+          description={user.description}
+          picture={user.thumbnail}
+        />
         <ScrollView>
           <Slider items={user.photos} />
           <ListGrid items={popularPhotos} />

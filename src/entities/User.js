@@ -1,10 +1,10 @@
 /**
-  * Remove links and hashtags from bio and add it to a list
+  * Remove links and hashtags from description and add it to a list
   *
   * @param {String[]} description The description of the user
   * @return {Object[]} texts
   */
-const parseBio = description => {
+const parseDescription = description => {
   const text = description.split('\n').join('. ');
   const highlightes = text.match(/\s([W||H||I||T||E||B||E||A||R])\w+/g);
   const texts = [];
@@ -32,9 +32,8 @@ export default class User {
     * @return {Object} decoded User
     */
   static decode(data) {
-    console.log(data);
     const user = {
-      bio: parseBio(data.description),
+      description: parseDescription(data.description),
       id: data.id,
       name: data.name,
       thumbnail: { uri: data.thumbnail },
