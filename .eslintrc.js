@@ -5,19 +5,19 @@ module.exports = {
     'plugin:react/recommended',
     'prettier',
     'prettier/flowtype',
-    'prettier/react'
+    'prettier/react',
   ],
   plugins: ['flowtype', 'react', 'prettier', 'react-native'],
   parserOptions: {
     ecmaVersion: 2016,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   env: {
     es6: true,
-    node: true
+    node: true,
   },
   rules: {
     'comma-dangle': 0,
@@ -42,21 +42,22 @@ module.exports = {
     'react-native/no-unused-styles': 1,
     'react-native/split-platform-components': 1,
     'react/jsx-filename-extension': 0,
+    'react/no-array-index-key': 0,
     'react/forbid-prop-types': [0, { forbid: ['any', 'array'] }],
     'react/jsx-no-bind': 1,
     'react/no-multi-comp': 1,
     'react/prefer-stateless-function': 1,
     'react/display-name': 0,
-    'react/prefer-stateless-function': 'off'
+    'react/prefer-stateless-function': 'off',
   },
   settings: {
     'import/resolver': {
-      reactnative: {}
-    }
+      reactnative: {},
+    },
   },
   globals: {
     it: false,
     describe: false,
-    expect: false
-  }
-}
+    expect: false,
+  },
+};

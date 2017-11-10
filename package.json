@@ -16,7 +16,6 @@
   "dependencies": {
     "apollo-client": "^2.0.2",
     "apollo-client-preset": "^1.0.2",
-    "axios": "^0.16.2",
     "faker": "^4.1.0",
     "graphql": "^0.11.7",
     "graphql-tag": "^2.5.0",
@@ -36,7 +35,6 @@
     "reselect": "^3.0.1"
   },
   "devDependencies": {
-    "axios-mock-adapter": "^1.9.0",
     "babel-eslint": "^7.2.1",
     "babel-jest": "21.2.0",
     "babel-plugin-transform-remove-console": "^6.8.5",
@@ -64,7 +62,9 @@
   "jest": {
     "preset": "react-native",
     "setupTestFrameworkScriptFile": "./enzyme.js",
-    "snapshotSerializers": ["./node_modules/enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "./node_modules/enzyme-to-json/serializer"
+    ]
   },
   "pre-commit": {
     "run": "lint"

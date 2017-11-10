@@ -1,78 +1,85 @@
-import mockStore from 'redux-mock-store'
-import MockAdapter from 'axios-mock-adapter'
+/* eslint-disable */
+import mockStore from 'redux-mock-store';
+import MockAdapter from 'axios-mock-adapter';
 
-import { HttpService } from '@common'
-import { Feed, User, FeedFacade, UserFacade } from '@entities'
+import { HttpService } from '@common';
+import { Feed, User, FeedFacade, UserFacade } from '@entities';
 
-import { fetchPhotosGrid, fetchUser } from './actions'
-import { FETCH_USER, FETCH_PHOTOS_SLIDER, FETCH_ALL_POPULAR } from '../../constants'
+import { fetchPhotosGrid, fetchUser } from './actions';
+import {
+  FETCH_USER,
+  FETCH_PHOTOS_SLIDER,
+  FETCH_ALL_POPULAR,
+} from '../../constants';
 
-const mockApi = new MockAdapter(HttpService.instance)
+const mockApi = new MockAdapter(HttpService.instance);
 
 describe('home actions', () => {
-  let store
-  let posts
-  let rawUser
+  let store;
+  let posts;
+  let rawUser;
   beforeEach(() => {
-    store = mockStore()
+    store = mockStore();
     posts = [
       {
         createdAt: '2017-11-04T19:49:54.136Z',
         thumbnail: 'https://reactjs.org/logo-og.png',
-        objectId: 18561785
+        objectId: 18561785,
       },
       {
         createdAt: '2017-11-04T19:31:41.206Z',
         thumbnail: 'https://reactjs.org/logo-og.png',
-        objectId: 18561778
-      }
-    ]
+        objectId: 18561778,
+      },
+    ];
     rawUser = {
       bio:
-        'Motivation to become the best version of you!  💙💪🌎\n\nIt\'s #HealthyHolidays ❄️🏋️\u200d♀️\n\n' +
+        "Motivation to become the best version of you!  💙💪🌎\n\nIt's #HealthyHolidays ❄️🏋️\u200d♀️\n\n" +
         'Share your photos all month long to be featured!\n\n👻 Snapchat @PumpUp\n\nGet your #TeamPumpUp gear ⬇️',
       name: 'pumpup',
       profileThumbnail: 'https://reactjs.org/logo-og.png',
       createdAt: '2014-02-03T07:21:44.372Z',
-      objectId: 318381
-    }
-  })
+      objectId: 318381,
+    };
+  });
 
   it('fetch popular photos', async () => {
-    const popularPhotos = posts.map(item => User.decodePhoto(item))
+    const popularPhotos = posts.map(item => User.decodePhoto(item));
 
-    const expectedActions = [{ type: FETCH_ALL_POPULAR, payload: { popularPhotos } }]
+    const expectedActions = [
+      { type: FETCH_ALL_POPULAR, payload: { popularPhotos } },
+    ];
 
-    const response = { result: { posts } }
+    const response = { result: { posts } };
 
-    mockApi.onPost(FeedFacade.fetchPopularPhotosUrl).reply(200, response)
+    mockApi.onPost(FeedFacade.fetchPopularPhotosUrl).reply(200, response);
 
-    await store.dispatch(fetchPhotosGrid())
+    await store.dispatch(fetchPhotosGrid());
 
-    const storeActions = store.getActions()
-    expect(storeActions).toEqual(expectedActions)
-    expect(storeActions).toMatchSnapshot()
-  })
+    const storeActions = store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+    expect(storeActions).toMatchSnapshot();
+  });
 
   it('fetch user data', async () => {
-    const user = User.decode(rawUser)
-    const photos = posts.map(item => Feed.decode(item))
+    const user = User.decode(rawUser);
+    const photos = posts.map(item => Feed.decode(item));
 
     const expectedActions = [
       { type: FETCH_USER, payload: { user } },
-      { type: FETCH_PHOTOS_SLIDER, payload: { photos } }
-    ]
+      { type: FETCH_PHOTOS_SLIDER, payload: { photos } },
+    ];
 
-    const userId = 1
-    mockApi.onPost(`${UserFacade.fetchOneUrl}${userId}`).reply(200, rawUser)
+    const userId = 1;
+    mockApi.onPost(`${UserFacade.fetchOneUrl}${userId}`).reply(200, rawUser);
 
-    const responseFetchPhotos = { result: { posts } }
-    mockApi.onPost(UserFacade.fetchPhotosUrl).reply(200, responseFetchPhotos)
+    const responseFetchPhotos = { result: { posts } };
+    mockApi.onPost(UserFacade.fetchPhotosUrl).reply(200, responseFetchPhotos);
 
-    await store.dispatch(fetchUser(userId))
+    await store.dispatch(fetchUser(userId));
 
-    const storeActions = store.getActions()
-    expect(storeActions).toEqual(expectedActions)
-    expect(storeActions).toMatchSnapshot()
-  })
-})
+    const storeActions = store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+    expect(storeActions).toMatchSnapshot();
+  });
+});
