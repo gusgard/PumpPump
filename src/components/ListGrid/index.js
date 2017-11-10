@@ -1,53 +1,57 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-import { View, FlatList, Image } from 'react-native'
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { View, FlatList, Image } from 'react-native';
 
-import { width, horizontal } from '@themes'
+import { width, horizontal } from '@themes';
 
-import styles from './styles'
+import styles from './styles';
 
-const space = horizontal.xxSmall
+const space = horizontal.xxSmall;
 const calcGridDimension = numberOfColumns => ({
   height: width / numberOfColumns - space,
-  width: width / numberOfColumns - space
-})
+  width: width / numberOfColumns - space,
+});
 
 export default class ListGrid extends PureComponent {
   static propTypes = {
     items: PropTypes.array.isRequired,
-    numberOfColumns: PropTypes.number.isRequired
-  }
+    numberOfColumns: PropTypes.number.isRequired,
+  };
 
   static defaultProps = {
-    numberOfColumns: 3
-  }
+    numberOfColumns: 3,
+  };
 
   state = {
-    index: 0
-  }
+    index: 0,
+  };
 
-  itemDimension = calcGridDimension(this.props.numberOfColumns)
+  itemDimension = calcGridDimension(this.props.numberOfColumns);
 
-  keyExtractor = item => item.id
+  keyExtractor = item => item.id;
 
   renderItem = ({ item, index }) => {
-    const { numberOfColumns } = this.props
-    const position = index % numberOfColumns
-    let style = styles.imageCenter
+    const { numberOfColumns } = this.props;
+    const position = index % numberOfColumns;
+    let style = styles.imageCenter;
     if (position === 0) {
-      style = styles.imageRight
+      style = styles.imageRight;
     } else if (position === numberOfColumns - 1) {
-      style = styles.imageLeft
+      style = styles.imageLeft;
     }
     return (
       <View style={style}>
-        <Image style={[styles.image, this.itemDimension]} source={item.thumbnail} resizeMethod="resize" />
+        <Image
+          style={[styles.image, this.itemDimension]}
+          source={item.thumbnail}
+          resizeMethod="resize"
+        />
       </View>
-    )
-  }
+    );
+  };
 
   render() {
-    const { items, numberOfColumns } = this.props
+    const { items, numberOfColumns } = this.props;
     return (
       <FlatList
         numColumns={numberOfColumns}
@@ -57,6 +61,6 @@ export default class ListGrid extends PureComponent {
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
       />
-    )
+    );
   }
 }

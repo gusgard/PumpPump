@@ -1,12 +1,12 @@
-import { shallow } from 'enzyme'
-import React from 'react'
+import { shallow } from 'enzyme';
+import React from 'react';
 
-import { ListGrid } from '@components'
+import { ListGrid } from '@components';
 
-const logo = { uri: 'https://...' }
-const items = [{ id: 1, picture: logo }, { id: 2, picture: logo }]
+const logo = { uri: 'https://...' };
+const items = [{ id: 1, picture: logo }, { id: 2, picture: logo }];
 
 it('renders correctly', () => {
-  const wrapper = shallow(<ListGrid items={items} />)
-  expect(wrapper).toMatchSnapshot()
-})
+  const wrapper = shallow(<ListGrid items={items} />);
+  expect(wrapper).toMatchSnapshot();
+});

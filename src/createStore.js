@@ -8,7 +8,6 @@ import client from './apolloClient';
 
 import { home } from './screens';
 
-// const middleware = [thunk]
 const middleware = [thunk.withExtraArgument(client), client.middleware()];
 
 export default (data = {}) => {
@@ -28,9 +27,9 @@ export default (data = {}) => {
     storage: AsyncStorage,
     // Reducers to persist
     whitelist: [home.NAME],
-  })
-    // Add purge to delete the persist store.
-    .purge();
+  });
+  // Add purge to delete the persist store.
+  // .purge();
 
   return store;
 };
