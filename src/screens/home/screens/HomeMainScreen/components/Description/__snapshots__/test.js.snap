@@ -8,7 +8,7 @@ exports[`renders Description without Read more text 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    ellipsizeMode="middle"
+    ellipsizeMode="tail"
     numberOfLines={0}
     style={
       Object {
@@ -50,8 +50,8 @@ exports[`renders correctly 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    ellipsizeMode="middle"
-    numberOfLines={3}
+    ellipsizeMode="tail"
+    numberOfLines={4}
     style={
       Object {
         "fontSize": 15,
@@ -79,18 +79,6 @@ exports[`renders correctly 1`] = `
       }
     >
        #HealthyHolidays
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontWeight": "bold",
-        }
-      }
-    >
-       ...read more
     </Text>
   </Text>
 </TouchableOpacity>

@@ -38,7 +38,7 @@ export default class User {
       id: data.id,
       name: data.name,
       thumbnail: { uri: data.thumbnail },
-      photos: data.photos && data.photos.map(i => User.decodePhoto(i)),
+      photos: data.Profiles && data.Profiles.map(i => User.decodePhoto(i)),
     };
     return user;
   }

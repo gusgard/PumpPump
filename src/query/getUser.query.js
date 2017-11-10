@@ -7,9 +7,9 @@ export default gql`
       name
       thumbnail
       description
-      Posts {
+      Profiles {
         id
-        title
+        thumbnail
       }
     }
   }

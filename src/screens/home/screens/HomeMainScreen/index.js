@@ -31,7 +31,7 @@ class HomeMainScreen extends PureComponent {
       <View style={styles.container}>
         <UserProfile name={user.name} bio={user.bio} picture={user.thumbnail} />
         <ScrollView>
-          {/* <Slider items={user.photos} /> */}
+          <Slider items={user.photos} />
           <ListGrid items={popularPhotos} />
         </ScrollView>
       </View>
