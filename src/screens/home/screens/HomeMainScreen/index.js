@@ -7,13 +7,13 @@ import { Slider, ListGrid } from '@components';
 
 import * as actions from './actions';
 import styles from './styles';
-import { getUserState, getPopularPhotosState } from './selectors';
+import { getUserState, getPopularPostState } from './selectors';
 import { UserProfile } from './components';
 
 class HomeMainScreen extends PureComponent {
   static propTypes = {
     user: PropTypes.object.isRequired,
-    popularPhotos: PropTypes.array.isRequired,
+    popular: PropTypes.array.isRequired,
     fetchUser: PropTypes.func.isRequired,
     fetchPhotosGrid: PropTypes.func.isRequired,
   };
@@ -26,7 +26,7 @@ class HomeMainScreen extends PureComponent {
   }
 
   render() {
-    const { user, popularPhotos } = this.props;
+    const { user, popular } = this.props;
     return (
       <View style={styles.container}>
         <UserProfile
@@ -36,7 +36,7 @@ class HomeMainScreen extends PureComponent {
         />
         <ScrollView>
           <Slider items={user.photos} />
-          <ListGrid items={popularPhotos} />
+          <ListGrid items={popular} />
         </ScrollView>
       </View>
     );
@@ -46,7 +46,7 @@ class HomeMainScreen extends PureComponent {
 export default connect(
   state => ({
     user: getUserState(state),
-    popularPhotos: getPopularPhotosState(state),
+    popular: getPopularPostState(state),
   }),
   dispatch => ({
     fetchUser: id => dispatch(actions.fetchUser(id)),

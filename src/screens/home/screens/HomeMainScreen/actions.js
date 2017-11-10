@@ -1,9 +1,9 @@
 import { Alert } from 'react-native';
 
-import { User, FeedFacade } from '@entities';
-import { GET_USER } from '@queries';
+import { User, Post } from '@entities';
+import { GET_USER, GET_ALL_USER } from '@queries';
 
-import { FETCH_USER, FETCH_PHOTOS_GRID } from '../../constants';
+import { FETCH_USER, FETCH_ALL_POPULAR } from '../../constants';
 
 export const fetchUser = userId => async (dispatch, getState, client) => {
   try {
@@ -25,10 +25,14 @@ export const fetchUser = userId => async (dispatch, getState, client) => {
   }
 };
 
-export const fetchPhotosGrid = () => async dispatch => {
+export const fetchPhotosGrid = () => async (dispatch, getState, client) => {
   try {
-    const popularPhotos = await FeedFacade.fetchPopularPhotos();
-    dispatch({ type: FETCH_PHOTOS_GRID, payload: { popularPhotos } });
+    const query = await client.query({
+      query: GET_ALL_USER,
+    });
+    const { data: { allPopulars } } = query;
+    const popular = allPopulars.map(i => Post.decode(i));
+    dispatch({ type: FETCH_ALL_POPULAR, payload: { popular } });
   } catch (e) {
     const title = 'Server error';
     const message = 'Fail connection to server';

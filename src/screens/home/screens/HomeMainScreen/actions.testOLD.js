@@ -5,7 +5,7 @@ import { HttpService } from '@common'
 import { Feed, User, FeedFacade, UserFacade } from '@entities'
 
 import { fetchPhotosGrid, fetchUser } from './actions'
-import { FETCH_USER, FETCH_PHOTOS_SLIDER, FETCH_PHOTOS_GRID } from '../../constants'
+import { FETCH_USER, FETCH_PHOTOS_SLIDER, FETCH_ALL_POPULAR } from '../../constants'
 
 const mockApi = new MockAdapter(HttpService.instance)
 
@@ -41,7 +41,7 @@ describe('home actions', () => {
   it('fetch popular photos', async () => {
     const popularPhotos = posts.map(item => User.decodePhoto(item))
 
-    const expectedActions = [{ type: FETCH_PHOTOS_GRID, payload: { popularPhotos } }]
+    const expectedActions = [{ type: FETCH_ALL_POPULAR, payload: { popularPhotos } }]
 
     const response = { result: { posts } }
 

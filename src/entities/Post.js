@@ -7,10 +7,9 @@ export default class Feed {
     */
   static decode(data) {
     const photo = {
-      createdAt: data.createdAt,
-      id: data.objectId,
-      thumbnail: { uri: data.thumbnail }
-    }
-    return photo
+      id: data.id,
+      thumbnail: { uri: data.thumbnail },
+    };
+    return photo;
   }
 }
