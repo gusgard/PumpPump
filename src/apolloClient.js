@@ -1,7 +1,9 @@
 import { ApolloClient, createNetworkInterface } from 'react-apollo';
 
+import { API_URL } from '@environment';
+
 export default new ApolloClient({
   networkInterface: createNetworkInterface({
-    uri: 'http://localhost:3000',
+    uri: API_URL,
   }),
 });
