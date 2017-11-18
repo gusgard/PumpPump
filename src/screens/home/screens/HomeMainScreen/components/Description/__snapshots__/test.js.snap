@@ -1,75 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders Description without Read more text 1`] = `
-<TouchableOpacity
-  activeOpacity={0.2}
-  onPress={[Function]}
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  numberOfLines={4}
 >
   <Text
     accessible={true}
     allowFontScaling={true}
     ellipsizeMode="tail"
-    numberOfLines={0}
+    key="0"
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      key="0"
-    >
-      Motivation to become the best version of you!
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      key="1"
-      style={
-        Object {
-          "color": "rgb(15, 45, 90)",
-          "fontWeight": "bold",
-        }
-      }
-    >
-      #Whitebear
-    </Text>
+    Motivation to become the best version of you!
   </Text>
-</TouchableOpacity>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    key="1"
+    style={
+      Object {
+        "color": "rgb(15, 45, 90)",
+        "fontWeight": "bold",
+      }
+    }
+  >
+    #Whitebear
+  </Text>
+</Text>
 `;
 
 exports[`renders correctly 1`] = `
-<TouchableOpacity
-  activeOpacity={0.2}
-  onPress={[Function]}
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  numberOfLines={4}
 >
   <Text
     accessible={true}
     allowFontScaling={true}
     ellipsizeMode="tail"
-    numberOfLines={4}
+    key="0"
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      key="0"
-    >
-      Motivation to become the best version of you!
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      key="1"
-      style={
-        Object {
-          "color": "rgb(15, 45, 90)",
-          "fontWeight": "bold",
-        }
-      }
-    >
-      #Whitebear
-    </Text>
+    Motivation to become the best version of you!
   </Text>
-</TouchableOpacity>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    key="1"
+    style={
+      Object {
+        "color": "rgb(15, 45, 90)",
+        "fontWeight": "bold",
+      }
+    }
+  >
+    #Whitebear
+  </Text>
+</Text>
 `;
