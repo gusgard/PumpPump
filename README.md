@@ -1,4 +1,4 @@
-![Travis](https://travis-ci.org/gusgard/rn-graphql-example.svg)
+![Travis](https://travis-ci.org/gusgard/react-native-graphql-example.svg?branch=master)
 
 # Installation
 

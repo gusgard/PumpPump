@@ -7,4 +7,8 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: colors.primary,
   },
+  image: {
+    width: '100%',
+    height: '100%',
+  },
 });

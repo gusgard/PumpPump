@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
-import { ScrollView, View } from 'react-native';
+import { Image, ScrollView, View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import GridList from 'react-native-grid-list';
 
-import { Slider, ListGrid } from '@components';
+import { Slider } from '@components';
 
 import * as actions from './actions';
 import styles from './styles';
@@ -25,6 +26,14 @@ class HomeMainScreen extends PureComponent {
     fetchPhotosGrid();
   }
 
+  renderItem = ({ item, stagger }) => (
+    <Image
+      style={styles.image}
+      source={item.thumbnail}
+      onLoad={() => stagger.start()}
+    />
+  );
+
   render() {
     const { user, popular } = this.props;
     return (
@@ -36,7 +45,13 @@ class HomeMainScreen extends PureComponent {
         />
         <ScrollView>
           <Slider items={user.photos} />
-          <ListGrid items={popular} />
+          <GridList
+            showAnimation
+            showSeparator
+            data={popular}
+            numColumns={3}
+            renderItem={this.renderItem}
+          />
         </ScrollView>
       </View>
     );

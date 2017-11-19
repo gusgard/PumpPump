@@ -33,10 +33,10 @@ const popular = index => ({
   thumbnail: getNewImage(index),
 });
 
-const MAX_PHOTOS = Math.round(Math.random() * 10) + 1;
+const MAX_PHOTOS = Math.round(Math.random() * 5) + 3;
 const profiles = Array.from(Array(MAX_PHOTOS)).map((_, index) => photo(index));
 
-const MAX_POPULAR = Math.round(Math.random() * 100) + 1;
+const MAX_POPULAR = Math.round(Math.random() * 100) + 15;
 const populars = Array.from(Array(MAX_POPULAR)).map((_, index) =>
   popular(index),
 );
