@@ -28,6 +28,7 @@
     "react-native": "0.50.3",
     "react-native-debugger-open": "^0.3.15",
     "react-native-grid-list": "^1.0.4",
+    "react-native-swiper-flatlist": "^0.0.3",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",

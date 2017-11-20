@@ -1,14 +1,18 @@
 import { StyleSheet } from 'react-native';
 
-import { colors } from '@themes';
+import { width, colors } from '@themes';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.primary,
   },
-  image: {
+  imageGrid: {
     width: '100%',
     height: '100%',
+  },
+  imageSwiper: {
+    height: width,
+    width,
   },
 });

@@ -3,8 +3,7 @@ import { Image, ScrollView, View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import GridList from 'react-native-grid-list';
-
-import { Slider } from '@components';
+import SwiperFlatList from 'react-native-swiper-flatlist';
 
 import * as actions from './actions';
 import styles from './styles';
@@ -26,9 +25,13 @@ class HomeMainScreen extends PureComponent {
     fetchPhotosGrid();
   }
 
-  renderItem = ({ item, stagger }) => (
+  renderItemSwiper = ({ item }) => (
+    <Image style={styles.imageSwiper} source={item.thumbnail} />
+  );
+
+  renderItemGrid = ({ item, stagger }) => (
     <Image
-      style={styles.image}
+      style={styles.imageGrid}
       source={item.thumbnail}
       onLoad={() => stagger.start()}
     />
@@ -44,13 +47,19 @@ class HomeMainScreen extends PureComponent {
           picture={user.thumbnail}
         />
         <ScrollView>
-          <Slider items={user.photos} />
+          <SwiperFlatList
+            autoplay
+            showPagination
+            data={user.photos}
+            autoplayDelay={3}
+            renderItem={this.renderItemSwiper}
+          />
           <GridList
             showAnimation
             showSeparator
             data={popular}
             numColumns={3}
-            renderItem={this.renderItem}
+            renderItem={this.renderItemGrid}
           />
         </ScrollView>
       </View>
