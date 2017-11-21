@@ -1,4 +1,4 @@
-package com.pumppump;
+package com.graphqlexample;
 
 import android.app.Application;
 
