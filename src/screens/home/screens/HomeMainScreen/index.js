@@ -29,11 +29,11 @@ class HomeMainScreen extends PureComponent {
     <Image style={styles.imageSwiper} source={item.thumbnail} />
   );
 
-  renderItemGrid = ({ item, stagger }) => (
+  renderItemGrid = ({ item, animation }) => (
     <Image
       style={styles.imageGrid}
       source={item.thumbnail}
-      onLoad={() => stagger.start()}
+      onLoad={() => animation && animation.start()}
     />
   );
 
@@ -57,6 +57,7 @@ class HomeMainScreen extends PureComponent {
           <GridList
             showAnimation
             showSeparator
+            separatorBorderWidth={5}
             data={popular}
             numColumns={3}
             renderItem={this.renderItemGrid}

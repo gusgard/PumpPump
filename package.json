@@ -27,7 +27,7 @@
     "react-apollo": "1.4.15",
     "react-native": "0.50.3",
     "react-native-debugger-open": "^0.3.15",
-    "react-native-grid-list": "^1.0.4",
+    "react-native-grid-list": "^1.0.5",
     "react-native-swiper-flatlist": "^0.0.3",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
@@ -67,9 +67,7 @@
   "jest": {
     "preset": "react-native",
     "setupTestFrameworkScriptFile": "./enzyme.js",
-    "snapshotSerializers": [
-      "./node_modules/enzyme-to-json/serializer"
-    ]
+    "snapshotSerializers": ["./node_modules/enzyme-to-json/serializer"]
   },
   "pre-commit": {
     "run": "lint"

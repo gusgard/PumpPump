@@ -5401,9 +5401,9 @@ react-native-debugger-open@^0.3.15:
     minimist "^1.2.0"
     semver "^5.4.1"
 
-react-native-grid-list@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/react-native-grid-list/-/react-native-grid-list-1.0.4.tgz#132b8234792fcb3370f0cacb12e27751ad9b32c1"
+react-native-grid-list@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-grid-list/-/react-native-grid-list-1.0.5.tgz#62f2fcd71edccbc597ea4dab518023b3fa2f5486"
   dependencies:
     prop-types "^15.6.0"
 
